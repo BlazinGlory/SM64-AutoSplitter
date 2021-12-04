@@ -1,6 +1,6 @@
 # SM64-AutoSplitter
 
-This Autosplitter was made to hopefully be an improvement to the one developed by [SporyTike](https://github.com/SporyTike). Many improvements added, including having predefined star counts for runs using the most common splits for each category as well as extra miscellaneous splitting options.
+This Autosplitter was made to be an upgrade to the one developed by [SporyTike](https://github.com/SporyTike). Many improvements added, including having predefined star counts for runs using the most common splits for each category as well as extra miscellaneous splitting options.
 
 Feel free to ask for more options for custom splits although no gurantee I will be able to implement them.
 
