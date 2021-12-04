@@ -124,6 +124,14 @@ init {
             vars.splitsArray = new int[] {8, 16, 26, 34, 36, 42, 50, 59, 66, 68, 74, 81, 88, 96, 103, 111, 119, 130};
         }
     }
+    if (settings["1"]) {
+        vars.splitsArray = new int[] {1, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+    }
+    if (settings["0"]) {
+        vars.splitsArray = new int[] {130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+    }
+
+
     vars.split1 = vars.splitsArray[0];
     vars.split2 = vars.splitsArray[1];
     vars.split3 = vars.splitsArray[2];
@@ -166,6 +174,8 @@ startup {
     settings.Add("120", false, "120 Star","run");
     settings.Add("LBLJ120", false, "LBLJ","120");
     settings.Add("noLBLJ120", false, "No LBLJ","120");
+    settings.Add("1", false, "1 Star","run");
+    settings.Add("0", false, "0 Star","run");
 
     settings.Add("misc", true, "Misc. Splits");
     settings.Add("bowserSplits", true, "BitDW/BitFS","misc");
