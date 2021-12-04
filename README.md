@@ -32,7 +32,7 @@ Typically 120 Exclusive:
 
 ## Acknowledgements
 
-- [SporyTike](https://github.com/SporyTike/LiveSplit.AutoSplitters)
-Huge credit to SporyTike who made one of the initial AutoSplitters for SM64. This code is largely based off of the groundwork that he did.
-- [Speedrun Tool Development Discord](https://discord.gg/N6wv8pW)
-Helped a lot with starting to learn the basics of ASL.
+Huge credit to [SporyTike](https://github.com/SporyTike/LiveSplit.AutoSplitters) who made one of the initial AutoSplitters for SM64. This code is largely based off of the groundwork that he did.
+
+[Speedrun Tool Development Discord](https://discord.gg/N6wv8pW)
+helped a lot with starting to learn the basics of ASL.
