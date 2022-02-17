@@ -141,7 +141,6 @@ init {
     vars.split15 = vars.splitsArray[14];
     vars.split16 = vars.splitsArray[15];
     vars.split17 = vars.splitsArray[16];
-
     vars.nextSplit = 0;
     vars.prevSplit = 0;
 }
