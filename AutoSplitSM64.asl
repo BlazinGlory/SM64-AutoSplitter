@@ -12,7 +12,6 @@ state("Project64", "Japanese") {
     byte fileCkey : "Project64.exe", 0xD6A1C, 0x207BE8;
     byte fileDkey : "Project64.exe", 0xD6A1C, 0x207F58;
 }
-
 // Memory of Shindou version
  state("Project64", "Shindou") {
    uint gameRunTime : "Project64.exe", 0xD6A1C, 0x30CCB0;
@@ -27,7 +26,6 @@ state("Project64", "Japanese") {
    byte fileCkey : "Project64.exe", 0xD6A1C, 0x203FE8;
    byte fileDkey : "Project64.exe", 0xD6A1C, 0x204058;
 }
-
 // Memory of US version
  state("Project64", "USA") {
    uint gameRunTime : "Project64.exe", 0xD6A1C, 0x32D580;
@@ -42,7 +40,6 @@ state("Project64", "Japanese") {
    byte fileCkey : "Project64.exe", 0xD6A1C, 0x2077E8;
    byte fileDkey : "Project64.exe", 0xD6A1C, 0x207858;
 }
-
 // Memory of Europe version
  state("Project64", "Europe") {
    uint gameRunTime : "Project64.exe", 0xD6A1C, 0x2F9730;
@@ -58,79 +55,74 @@ state("Project64", "Japanese") {
    byte fileDkey : "Project64.exe", 0xD6A1C, 0x203058;
 }
  
-
 init {
     // Version identifier
-    if (settings["gameVerJP"])
-	{
+    if (settings["gameVerJP"]) {
 		version = "Japanese";
 	}
-	else if (settings["gameVerShindou"])
-	{
+	else if (settings["gameVerShindou"]) {
 		version = "Shindou";
 	}
-        else if (settings["gameVerUS"])
-	{
+    else if (settings["gameVerUS"]) {
 		version = "USA";
 	}
-        else if (settings["gameVerEU"])
-	{
+    else if (settings["gameVerEU"]) {
 		version = "Europe";
 	}
     print(version);
-    
-	refreshRate = 30;
+    refreshRate = 30;
     
     // Variables
     vars.currentFile = 0;
     vars.currentStars = 0;
     vars.launchMapID = 1;
     vars.valueReset = 0;
-    vars.courseReset = 0;
     vars.enterCastle = 0;
     vars.enterBitDW = 0;
     vars.enterBitFS = 0;
     vars.enterBitS = 0;
     vars.enterDDD = 0;
-
+    // Define Presets
     if (settings["16"]) {
-        if (settings["Reds"]) {
-            vars.splitsArray = new int[] {1, 6, 8, 11, 12, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+        if (settings["LBLJ"]) {
+            vars.splitsArray = new int[] {4, 7, 11, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+            }
+        else if (settings["Reds"]) {
+            vars.splitsArray = new int[] {1, 6, 8, 11, 12, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
         }
         else if (settings["noReds"]) {
-            vars.splitsArray = new int[] {1, 6, 8, 10, 11, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+            vars.splitsArray = new int[] {1, 6, 8, 10, 11, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
         }
-        else if (settings["LBLJ"]) {
-            vars.splitsArray = new int[] {4, 7, 11, 15, 16, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
-            }
     }    
-    if (settings["70"]) {
+    else if (settings["70"]) {
         if (settings["earlyHMC"]) {
-            vars.splitsArray = new int[] {1, 9, 13, 17, 19, 24, 30, 35, 38, 44, 47, 53, 58, 62, 70, 130, 130, 130};
+            vars.splitsArray = new int[] {1, 9, 13, 17, 19, 24, 30, 35, 38, 44, 47, 53, 58, 62, 70, 130, 130};
         }
         else if (settings["ccm18"]) {
-            vars.splitsArray = new int[] {1, 9, 13, 18, 20, 24, 30, 33, 39, 42, 48, 52, 58, 62, 70, 130, 130, 130};
+            vars.splitsArray = new int[] {1, 9, 13, 18, 20, 24, 30, 33, 39, 42, 48, 52, 58, 62, 70, 130, 130};
         }
         else if (settings["ccm17"]) {
-            vars.splitsArray = new int[] {1, 9, 13, 17, 19, 24, 30, 33, 39, 42, 48, 52, 58, 62, 70, 130, 130, 130};
+            vars.splitsArray = new int[] {1, 9, 13, 17, 19, 24, 30, 33, 39, 42, 48, 52, 58, 62, 70, 130, 130};
         }
     }
-    if (settings["120"]) {
+    else if (settings["120"]) {
         if (settings["LBLJ120"]) {
-            vars.splitsArray = new int[] {1, 8, 16, 26, 34, 36, 42, 50, 59, 66, 68, 74, 81, 88, 96, 103, 111, 119};
+            vars.splitsArray = new int[] {8, 16, 26, 34, 36, 42, 50, 59, 66, 68, 74, 81, 88, 96, 103, 111, 119};
         }
 
         else if (settings["noLBLJ120"]) {
-            vars.splitsArray = new int[] {8, 16, 26, 34, 36, 42, 50, 59, 66, 68, 74, 81, 88, 96, 103, 111, 119, 130};
+            vars.splitsArray = new int[] {8, 16, 26, 34, 36, 42, 50, 59, 66, 68, 74, 81, 88, 96, 103, 111, 119};
         }
     }
-    if (settings["1"]) {
-        vars.splitsArray = new int[] {1, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+    else if (settings["1"]) {
+        vars.splitsArray = new int[] {1, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
     }
-    if (settings["0"]) {
-        vars.splitsArray = new int[] {130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
+    else if (settings["0"]) {
+        vars.splitsArray = new int[] {130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130};
     }
-
+    else {
+        vars.splitsArray = new int[] {130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130}; 
+    }
 
     vars.split1 = vars.splitsArray[0];
     vars.split2 = vars.splitsArray[1];
@@ -149,17 +141,16 @@ init {
     vars.split15 = vars.splitsArray[14];
     vars.split16 = vars.splitsArray[15];
     vars.split17 = vars.splitsArray[16];
-    vars.split18 = vars.splitsArray[17];
 
     vars.nextSplit = 0;
     vars.prevSplit = 0;
-    
-
-
 }
 
 startup {
-
+    // Presets
+    settings.Add("start", true, "Start Settings");
+    settings.Add("launchStart", false, "Start on Game Launch", "start");
+    settings.Add("menuStart", false, "Start on File Select", "start");
     settings.Add("run", true, "Category Presets Per Stage (Only check one)");
     settings.Add("16", true, "16 Star","run");
     settings.Add("LBLJ", false, "LBLJ","16");
@@ -176,7 +167,7 @@ startup {
     settings.Add("noLBLJ120", false, "No LBLJ","120");
     settings.Add("1", false, "1 Star","run");
     settings.Add("0", false, "0 Star","run");
-
+    // Miscellaneous
     settings.Add("misc", true, "Misc. Splits");
     settings.Add("bowserSplits", true, "BitDW/BitFS","misc");
     settings.Add("enterCastleSplit", false, "Entering Castle", "misc");
@@ -187,9 +178,9 @@ startup {
     settings.Add("secretSplit", false, "Secret Stars - Toad/Mips", "misc");
     settings.Add("switchSplit", false, "Switch activation", "misc");
     settings.Add("misc120",false,"120 Exclusive","misc");
-    settings.Add("vcSplit", true, "Vanish Cap", "misc120");
-    settings.Add("cloudSplit", true, "Cloud Secret (Wing Mario Over the Rainbow)", "misc120");
-    
+    settings.Add("vcSplit", false, "Vanish Cap", "misc120");
+    settings.Add("cloudSplit", false, "Cloud Secret (Wing Mario Over the Rainbow)", "misc120");
+    // Star Based
     settings.Add("starBased", false, "Star Count Based");
     settings.Add("starSplit", false, "Split on Star # at fadeout (Does not work on secret stars)","starBased");
     settings.Add("Star1",false,"1 Star","starSplit");
@@ -198,7 +189,7 @@ startup {
         } 
     settings.Add("allStarSplit", false, "Split on Every Star (splits on grab not fadeout)","starBased");
     settings.Add("tenStarSplit", false, "Split on Every 10 Stars (splits on grab not fadeout)","starBased");
-
+    // Game Version
     settings.Add("gameVersion", true, "Game Version (requires LiveSplit restart)");
     settings.Add("gameVerJP", true, "Japanese", "gameVersion");
     settings.Add("gameVerShindou", false, "Shindou", "gameVersion");
@@ -207,7 +198,11 @@ startup {
 }
 
 start {
-    if (current.mapID == vars.launchMapID && current.gameRunTime == 0) {
+    if (settings["launchStart"] && current.mapID == vars.launchMapID && current.gameRunTime <= 5) {
+        vars.valueReset = 1;
+        return true;
+    }
+    if (settings["menuStart"] && !settings["launchStart"] && current.mainMenu <= 3 && old.mainMenu == 255 ) {
         vars.valueReset = 1;
         return true;
     }
@@ -218,12 +213,10 @@ reset {
         vars.valueReset = 1;
         return true;
     }
-
     // Resets all vars when the timer resets
     if (vars.valueReset == 1) {
         vars.valueReset = 0;
         vars.currentFile = 0;
-        vars.courseReset = 1;
         vars.enterCastle = 0;
         vars.enterBitDW = 0;
         vars.enterBitFS = 0;
@@ -232,13 +225,13 @@ reset {
     }
 }
 
-split {
-	// split on end star grab
+split {    
+	// Split on end star grab
     if (current.animation == 6409 && old.animation != 6409 && current.mapID == 34) {
         return true;
     }
-    
-    if (settings["bowserSplits"] && !settings["allStarSplit"]) {
+    //Bowser stage splits
+    if (settings["bowserSplits"]) {
         // BitDW
         if ((current.fileAkey==17 || current.fileBkey==17 || current.fileCkey==17 || current.fileDkey==17) && current.mapID == 6 && old.mapID == 30) {
             return true;   
@@ -248,7 +241,7 @@ split {
             return true;
         } 
     }
-
+    // Entering stage
     if (settings["enterCastleSplit"] && vars.enterCastle == 0 && current.mapID == 6) {
         vars.enterCastle = 1;
         return true;
@@ -265,7 +258,7 @@ split {
         vars.enterBitS = 1;
         return true;
     }
-
+    // Misc
     if (settings["switchSplit"] && ((current.fileSelected == 1 && current.fileAkey > old.fileAkey) || (current.fileSelected == 2 && current.fileBkey > old.fileBkey) || (current.fileSelected == 3 && current.fileCkey > old.fileCkey) || (current.fileSelected == 4 && current.fileDkey > old.fileDkey)) && (current.mapID == 18 || current.mapID == 28 || current.mapID == 29)) {
         return true;
     }
@@ -275,7 +268,7 @@ split {
     if (settings["secretSplit"] && !settings["allStarSplit"] && current.mapID == 6 && old.mapID != 6 && current.animation == 4866 && (old.mapID == 18 || old.mapID == 20 || (old.mapID >= 27 && old.mapID <= 29) || old.mapID == 31)) {
         return true;
     }
-
+    // 120 Specific
     if (settings["vcSplit"] && !settings["allStarSplit"] && current.mapID == 6 && old.mapID == 18 && current.animation == 4866) {
         return true;
     }
@@ -283,19 +276,30 @@ split {
         return true;
     }
 
-    // Course split checks
+    // Update star number on star Grab
     if (current.starNumber > old.starNumber) {
         vars.currentStars = current.starNumber;
 	}
-
-    
-    // Split on Every Star
-    if (settings["allStarSplit"] && current.mapID != vars.launchMapID && old.mapID != vars.launchMapID && current.starNumber > old.starNumber) {
+    // Split on Preset Star Numbers
+    if (settings["run"] && current.mapID == 6 && old.mapID != 6 && current.animation == 4866 && (current.mapID != 18 || current.mapID != 20 || current.mapID != 27 || current.mapID != 28 || current.mapID != 29 || current.mapID != 31)) {
+        if (current.starNumber == vars.split1 || current.starNumber == vars.split2 || current.starNumber == vars.split3 || current.starNumber == vars.split4 || current.starNumber == vars.split5 || current.starNumber == vars.split6 || current.starNumber == vars.split7 || current.starNumber == vars.split8 || current.starNumber == vars.split9 || current.starNumber == vars.split10 || current.starNumber == vars.split11 || current.starNumber == vars.split12 || current.starNumber == vars.split13 || current.starNumber == vars.split14 || current.starNumber == vars.split15 || current.starNumber == vars.split16 || current.starNumber == vars.split17) {
+            return true;
+		}
+    }
+    // Split on User Defined Star Number
+    if (settings["starSplit"] && current.mapID == 6 && old.mapID != 6 && current.animation == 4866 && (current.mapID != 18 || current.mapID != 20 || current.mapID != 27 || current.mapID != 28 || current.mapID != 29 || current.mapID != 31)) {    
+        for(int i=1; i<=120; i++){
+            if (settings["Star"+i] && current.starNumber == i) {
+                return true;
+            }
+        }
+    }
+    // Split on every Star
+    if (settings["allStarSplit"] && !settings["run"] && current.mapID != vars.launchMapID && old.mapID != vars.launchMapID && current.starNumber > old.starNumber) {
         return true;
     }
-
     // Split every 10 Stars   
-    if (settings["tenStarSplit"] && current.mapID != vars.launchMapID && old.mapID != vars.launchMapID && current.starNumber > old.starNumber) {
+    if (settings["tenStarSplit"] && !settings["run"] && current.mapID != vars.launchMapID && old.mapID != vars.launchMapID && current.starNumber > old.starNumber) {
         if (vars.nextSplit == vars.prevSplit) {
             vars.nextSplit = vars.nextSplit + 10;
         }
@@ -304,23 +308,6 @@ split {
             vars.nextSplit = vars.nextSplit + 10;
             return true;
         }
-    }
-    
-    // Split on Preset Star Numbers
-    if (settings["run"] && current.mapID == 6 && old.mapID != 6 && current.animation == 4866 && (current.mapID != 18 || current.mapID != 20 || current.mapID != 27 || current.mapID != 28 || current.mapID != 29 || current.mapID != 31)) {
-        if (current.starNumber == vars.split1 || current.starNumber == vars.split2 || current.starNumber == vars.split3 || current.starNumber == vars.split4 || current.starNumber == vars.split5 || current.starNumber == vars.split6 || current.starNumber == vars.split7 || current.starNumber == vars.split8 || current.starNumber == vars.split9 || current.starNumber == vars.split10 || current.starNumber == vars.split11 || current.starNumber == vars.split12 || current.starNumber == vars.split13 || current.starNumber == vars.split14 || current.starNumber == vars.split15 || current.starNumber == vars.split16 || current.starNumber == vars.split17 || current.starNumber == vars.split18) {
-            return true;
-		}
-    }
-    
-    // Split on User Defined Star Number
-    if (settings["starSplit"] && current.mapID == 6 && old.mapID != 6 && current.animation == 4866 && (current.mapID != 18 || current.mapID != 20 || current.mapID != 27 || current.mapID != 28 || current.mapID != 29 || current.mapID != 31)) {    
-        for(int i=1; i<=120; i++){
-            if (settings["Star"+i] && current.starNumber == i) {
-                return true;
-            }
-        }
-
     }
 }
 update {
