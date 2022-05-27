@@ -1,0 +1,5 @@
+cd C:\app\public\champ_pages
+
+for /F %A in (_names.txt) do copy Shyvana.html '%A.html' /Y
+
+run this in cmd
